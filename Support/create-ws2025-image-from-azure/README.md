@@ -6,7 +6,7 @@ Scripts to download a **Windows Server 2025 Datacenter** GEN1 VHD from the Azure
 
 ## Overview
 
-Azure Stack Hub operators who cannot use the built-in Marketplace syndication (e.g., disconnected or partially-connected environments) can use these scripts to manually obtain and import the WS2025 image.
+Azure Stack Hub operators can use these scripts to manually obtain and import a Windows Server 2025 VM image.
 
 ### Workflow
 
