@@ -1,0 +1,12 @@
+build/
+rootfs/
+*.vhdx
+*.raw
+*.img
+*.squashfs
+*.hash
+*.log
+.git/
+.gitignore
+README.md
+*.md
