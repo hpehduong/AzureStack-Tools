@@ -1,0 +1,35 @@
+# Cloud-init configuration for integrity-protected image - SECURITY HARDENED
+# User-data is completely disabled - only metadata (hostname, network) is processed
+
+# Allow Azure, NoCloud (for local testing), or no datasource
+datasource_list: [ Azure, NoCloud, None ]
+
+# SECURITY: Explicitly define ALL module stages to prevent defaults from running
+# Empty lists = no modules run in that stage
+cloud_init_modules: []
+
+# Only allow hostname setting in config stage
+cloud_config_modules:
+  - set_hostname
+  - update_hostname
+  - update_etc_hosts
+
+# No final stage modules
+cloud_final_modules: []
+
+# Block all user creation mechanisms
+users: []
+disable_root: true
+system_info:
+  default_user:
+    name: none
+
+# Prevent user-data from being processed at all
+unverified_modules: []
+
+# Network configuration from metadata is allowed
+network:
+  config: enabled
+
+# Update /etc/hosts with hostname from metadata
+manage_etc_hosts: true

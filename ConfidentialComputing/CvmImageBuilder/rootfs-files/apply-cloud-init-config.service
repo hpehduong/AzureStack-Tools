@@ -1,0 +1,14 @@
+[Unit]
+Description=Apply cloud-init configuration from EFI partition
+DefaultDependencies=no
+After=local-fs.target etc-overlay.service
+Before=cloud-init-local.service
+Wants=cloud-init-local.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/apply-cloud-init-config.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target
